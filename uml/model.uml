@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_DHanAL5fEeO6K480ghKqqA" name="SlideToHandout">
+  <packagedElement xmi:type="uml:Actor" xmi:id="_JiySgL5gEeO6K480ghKqqA" name="Speaker"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_KvPekL5gEeO6K480ghKqqA" name="Connect to the channel"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_WBVd4L5gEeO6K480ghKqqA" name="Control the presentation screen"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_gKamsL5gEeO6K480ghKqqA" name="Association_Speaker_to_Connect to the channel" memberEnd="_gKgGQL5gEeO6K480ghKqqA _gKgtUL5gEeO6K480ghKqqA">
+    <ownedEnd xmi:id="_gKgGQL5gEeO6K480ghKqqA" type="_JiySgL5gEeO6K480ghKqqA" association="_gKamsL5gEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_gKgtUL5gEeO6K480ghKqqA" type="_KvPekL5gEeO6K480ghKqqA" association="_gKamsL5gEeO6K480ghKqqA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_g6uCQL5gEeO6K480ghKqqA" name="Association_Speaker_to_Control the presentation screen" memberEnd="_g6uCQb5gEeO6K480ghKqqA _g6upUL5gEeO6K480ghKqqA">
+    <ownedEnd xmi:id="_g6uCQb5gEeO6K480ghKqqA" type="_JiySgL5gEeO6K480ghKqqA" association="_g6uCQL5gEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_g6upUL5gEeO6K480ghKqqA" type="_WBVd4L5gEeO6K480ghKqqA" association="_g6uCQL5gEeO6K480ghKqqA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_iArkwL5gEeO6K480ghKqqA" name="Audience"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_r9NfUL5gEeO6K480ghKqqA" name="Promote an audience to a speaker"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_wcIhsL5gEeO6K480ghKqqA" name="Association_Speaker_to_Promote an audience to a speaker" memberEnd="_wcJIwL5gEeO6K480ghKqqA _wcJIwb5gEeO6K480ghKqqA">
+    <ownedEnd xmi:id="_wcJIwL5gEeO6K480ghKqqA" type="_JiySgL5gEeO6K480ghKqqA" association="_wcIhsL5gEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_wcJIwb5gEeO6K480ghKqqA" type="_r9NfUL5gEeO6K480ghKqqA" association="_wcIhsL5gEeO6K480ghKqqA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_CMuOcL5hEeO6K480ghKqqA" name="Question to the speaker"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_GH5DgL5hEeO6K480ghKqqA" name="Association_Audience_to_Question to the speaker" memberEnd="_GH5Dgb5hEeO6K480ghKqqA _GH5qkL5hEeO6K480ghKqqA">
+    <ownedEnd xmi:id="_GH5Dgb5hEeO6K480ghKqqA" type="_iArkwL5gEeO6K480ghKqqA" association="_GH5DgL5hEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_GH5qkL5hEeO6K480ghKqqA" type="_CMuOcL5hEeO6K480ghKqqA" association="_GH5DgL5hEeO6K480ghKqqA"/>
+  </packagedElement>
+</uml:Model>
