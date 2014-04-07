@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_DHanAL5fEeO6K480ghKqqA" name="SlideToHandout">
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_DHanAL5fEeO6K480ghKqqA" name="SlideToHandout">
   <packagedElement xmi:type="uml:Actor" xmi:id="_JiySgL5gEeO6K480ghKqqA" name="Speaker"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_KvPekL5gEeO6K480ghKqqA" name="Connect to the channel">
     <extend xmi:id="_RB5BAL5jEeO6K480ghKqqA" extendedCase="_O7y3ML5jEeO6K480ghKqqA"/>
@@ -104,4 +104,65 @@
     <ownedEnd xmi:id="_ZIHEwb5kEeO6K480ghKqqA" type="_KvPekL5gEeO6K480ghKqqA" association="_ZIHEwL5kEeO6K480ghKqqA"/>
     <ownedEnd xmi:id="_ZIHEwr5kEeO6K480ghKqqA" type="_b_Bc8L5jEeO6K480ghKqqA" association="_ZIHEwL5kEeO6K480ghKqqA"/>
   </packagedElement>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_zHcVwL5-EeObqMyAeZQ18Q" name="SlideToHandout">
+    <ownedAttribute xmi:id="_W8TgQL5_EeObqMyAeZQ18Q" name="Web Service" type="_b_Bc8L5jEeO6K480ghKqqA"/>
+    <ownedAttribute xmi:id="_XtaNEb5_EeObqMyAeZQ18Q" name="Client App" type="_XtY-8L5_EeObqMyAeZQ18Q"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_fJKM8L5_EeObqMyAeZQ18Q" name="로그인 액티비티 전환"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_iC7PYb5_EeObqMyAeZQ18Q" name="외부 서비스 계정으로 로그인 요청"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_prSH4L5_EeObqMyAeZQ18Q" name="OAuth 인증"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_stswAL5_EeObqMyAeZQ18Q" name="OAuth 인증"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_tJgiQL5_EeObqMyAeZQ18Q" name="사용자 ID 요청"/>
+    <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_tvmR4L5_EeObqMyAeZQ18Q" name="가입 여부 체크 및 계정 생성"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_fJKM8r5_EeObqMyAeZQ18Q" name="로그인 액티비티 전환_sender" covered="_I_zJIL5_EeObqMyAeZQ18Q" message="_fJHwsL5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_fJK0AL5_EeObqMyAeZQ18Q" name="로그인 액티비티 전환_receiver" covered="_XtaNEL5_EeObqMyAeZQ18Q" message="_fJHwsL5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_fJK0Ar5_EeObqMyAeZQ18Q" name="로그인 액티비티 전환" covered="_XtaNEL5_EeObqMyAeZQ18Q" finish="_fJK0Ab5_EeObqMyAeZQ18Q" start="_fJK0AL5_EeObqMyAeZQ18Q" behavior="_fJKM8L5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_fJK0Ab5_EeObqMyAeZQ18Q" name="로그인 액티비티 전환_sender" covered="_XtaNEL5_EeObqMyAeZQ18Q" message="_fJKM8b5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_fJK0A75_EeObqMyAeZQ18Q" name="로그인 액티비티 전환_receiver" covered="_I_zJIL5_EeObqMyAeZQ18Q" message="_fJKM8b5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_iC72cb5_EeObqMyAeZQ18Q" name="외부 서비스 계정으로 로그인 요청_sender" covered="_I_zJIL5_EeObqMyAeZQ18Q" message="_iC7PYL5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_iC72cr5_EeObqMyAeZQ18Q" name="외부 서비스 계정으로 로그인 요청_receiver" covered="_XtaNEL5_EeObqMyAeZQ18Q" message="_iC7PYL5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_iC72dL5_EeObqMyAeZQ18Q" name="외부 서비스 계정으로 로그인 요청" covered="_XtaNEL5_EeObqMyAeZQ18Q" finish="_iC72c75_EeObqMyAeZQ18Q" start="_iC72cr5_EeObqMyAeZQ18Q" behavior="_iC7PYb5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_prSH4r5_EeObqMyAeZQ18Q" name="OAuth 인증_sender" covered="_XtaNEL5_EeObqMyAeZQ18Q" message="_prRg0L5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_prSH475_EeObqMyAeZQ18Q" name="OAuth 인증_receiver" covered="_W8TgQb5_EeObqMyAeZQ18Q" message="_prRg0L5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_prSu8L5_EeObqMyAeZQ18Q" name="OAuth 인증" covered="_W8TgQb5_EeObqMyAeZQ18Q" finish="_prSH5L5_EeObqMyAeZQ18Q" start="_prSH475_EeObqMyAeZQ18Q" behavior="_prSH4L5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_stswAr5_EeObqMyAeZQ18Q" name="OAuth 인증_sender" covered="_W8TgQb5_EeObqMyAeZQ18Q" message="_stsI8L5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_stswA75_EeObqMyAeZQ18Q" name="OAuth 인증_receiver" covered="_N-lXUL5_EeObqMyAeZQ18Q" message="_stsI8L5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_sttXEb5_EeObqMyAeZQ18Q" name="OAuth 인증" covered="_N-lXUL5_EeObqMyAeZQ18Q" finish="_sttXEL5_EeObqMyAeZQ18Q" start="_stswA75_EeObqMyAeZQ18Q" behavior="_stswAL5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_sttXEL5_EeObqMyAeZQ18Q" name="인증 성공_sender" covered="_N-lXUL5_EeObqMyAeZQ18Q" message="_stswAb5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_sttXEr5_EeObqMyAeZQ18Q" name="인증 성공_receiver" covered="_W8TgQb5_EeObqMyAeZQ18Q" message="_stswAb5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tJgiQr5_EeObqMyAeZQ18Q" name="사용자 ID 요청_sender" covered="_W8TgQb5_EeObqMyAeZQ18Q" message="_tJf7ML5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tJgiQ75_EeObqMyAeZQ18Q" name="사용자 ID 요청_receiver" covered="_N-lXUL5_EeObqMyAeZQ18Q" message="_tJf7ML5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_tJgiRb5_EeObqMyAeZQ18Q" name="사용자 ID 요청" covered="_N-lXUL5_EeObqMyAeZQ18Q" finish="_tJgiRL5_EeObqMyAeZQ18Q" start="_tJgiQ75_EeObqMyAeZQ18Q" behavior="_tJgiQL5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tJgiRL5_EeObqMyAeZQ18Q" name="사용자 ID 응답_sender" covered="_N-lXUL5_EeObqMyAeZQ18Q" message="_tJgiQb5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tJhJUL5_EeObqMyAeZQ18Q" name="사용자 ID 응답_receiver" covered="_W8TgQb5_EeObqMyAeZQ18Q" message="_tJgiQb5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tvmR4r5_EeObqMyAeZQ18Q" name="가입 여부 체크 및 계정 생성_sender" covered="_W8TgQb5_EeObqMyAeZQ18Q" message="_tvlq0L5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tvmR475_EeObqMyAeZQ18Q" name="가입 여부 체크 및 계정 생성_receiver" covered="_W8TgQb5_EeObqMyAeZQ18Q" message="_tvlq0L5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:BehaviorExecutionSpecification" xmi:id="_tvm48L5_EeObqMyAeZQ18Q" name="가입 여부 체크 및 계정 생성" covered="_W8TgQb5_EeObqMyAeZQ18Q" finish="_tvmR5L5_EeObqMyAeZQ18Q" start="_tvmR475_EeObqMyAeZQ18Q" behavior="_tvmR4L5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tvmR5L5_EeObqMyAeZQ18Q" name="가입 여부 체크 및 계정 생성_finish" covered="_W8TgQb5_EeObqMyAeZQ18Q" message="_tvmR4b5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_tvm48b5_EeObqMyAeZQ18Q" name="가입 여부 확인됨_receiver" covered="_W8TgQb5_EeObqMyAeZQ18Q" message="_tvmR4b5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_prSH5L5_EeObqMyAeZQ18Q" name="클라이언트 세션 생성_sender" covered="_W8TgQb5_EeObqMyAeZQ18Q" message="_prSH4b5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_prSu8b5_EeObqMyAeZQ18Q" name="클라이언트 세션 생성_receiver" covered="_XtaNEL5_EeObqMyAeZQ18Q" message="_prSH4b5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_iC72c75_EeObqMyAeZQ18Q" name="로그인 완료 알림 _sender" covered="_XtaNEL5_EeObqMyAeZQ18Q" message="_iC72cL5_EeObqMyAeZQ18Q"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_iC72db5_EeObqMyAeZQ18Q" name="로그인 완료 알림 _receiver" covered="_I_zJIL5_EeObqMyAeZQ18Q" message="_iC72cL5_EeObqMyAeZQ18Q"/>
+    <lifeline xmi:id="_I_zJIL5_EeObqMyAeZQ18Q" represents="_vQdt4b5iEeO6K480ghKqqA" coveredBy="_fJKM8r5_EeObqMyAeZQ18Q _fJK0A75_EeObqMyAeZQ18Q _iC72cb5_EeObqMyAeZQ18Q _iC72db5_EeObqMyAeZQ18Q">
+      <name xsi:nil="true"/>
+    </lifeline>
+    <lifeline xmi:id="_XtaNEL5_EeObqMyAeZQ18Q" name="Actor5" represents="_XtaNEb5_EeObqMyAeZQ18Q" coveredBy="_fJK0AL5_EeObqMyAeZQ18Q _fJK0Ar5_EeObqMyAeZQ18Q _fJK0Ab5_EeObqMyAeZQ18Q _iC72cr5_EeObqMyAeZQ18Q _iC72dL5_EeObqMyAeZQ18Q _iC72c75_EeObqMyAeZQ18Q _prSH4r5_EeObqMyAeZQ18Q _prSu8b5_EeObqMyAeZQ18Q"/>
+    <lifeline xmi:id="_W8TgQb5_EeObqMyAeZQ18Q" name="Presentation Screen" represents="_W8TgQL5_EeObqMyAeZQ18Q" coveredBy="_prSH475_EeObqMyAeZQ18Q _prSu8L5_EeObqMyAeZQ18Q _prSH5L5_EeObqMyAeZQ18Q _stswAr5_EeObqMyAeZQ18Q _sttXEr5_EeObqMyAeZQ18Q _tJgiQr5_EeObqMyAeZQ18Q _tJhJUL5_EeObqMyAeZQ18Q _tvmR4r5_EeObqMyAeZQ18Q _tvmR475_EeObqMyAeZQ18Q _tvm48L5_EeObqMyAeZQ18Q _tvmR5L5_EeObqMyAeZQ18Q _tvm48b5_EeObqMyAeZQ18Q"/>
+    <lifeline xmi:id="_N-lXUL5_EeObqMyAeZQ18Q" represents="_eFt5Ib5iEeO6K480ghKqqA" coveredBy="_stswA75_EeObqMyAeZQ18Q _sttXEb5_EeObqMyAeZQ18Q _sttXEL5_EeObqMyAeZQ18Q _tJgiQ75_EeObqMyAeZQ18Q _tJgiRb5_EeObqMyAeZQ18Q _tJgiRL5_EeObqMyAeZQ18Q">
+      <name xsi:nil="true"/>
+    </lifeline>
+    <message xmi:id="_fJHwsL5_EeObqMyAeZQ18Q" name="로그인 액티비티 전환" receiveEvent="_fJK0AL5_EeObqMyAeZQ18Q" sendEvent="_fJKM8r5_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_fJKM8b5_EeObqMyAeZQ18Q" name="로그인 액티비티 전환" messageSort="reply" receiveEvent="_fJK0A75_EeObqMyAeZQ18Q" sendEvent="_fJK0Ab5_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_iC7PYL5_EeObqMyAeZQ18Q" name="외부 서비스 계정으로 로그인 요청" receiveEvent="_iC72cr5_EeObqMyAeZQ18Q" sendEvent="_iC72cb5_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_iC72cL5_EeObqMyAeZQ18Q" name="로그인 완료 알림 " messageSort="reply" receiveEvent="_iC72db5_EeObqMyAeZQ18Q" sendEvent="_iC72c75_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_prRg0L5_EeObqMyAeZQ18Q" name="OAuth 인증" receiveEvent="_prSH475_EeObqMyAeZQ18Q" sendEvent="_prSH4r5_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_prSH4b5_EeObqMyAeZQ18Q" name="클라이언트 세션 생성" messageSort="reply" receiveEvent="_prSu8b5_EeObqMyAeZQ18Q" sendEvent="_prSH5L5_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_stsI8L5_EeObqMyAeZQ18Q" name="OAuth 인증" receiveEvent="_stswA75_EeObqMyAeZQ18Q" sendEvent="_stswAr5_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_stswAb5_EeObqMyAeZQ18Q" name="인증 성공" messageSort="reply" receiveEvent="_sttXEr5_EeObqMyAeZQ18Q" sendEvent="_sttXEL5_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_tJf7ML5_EeObqMyAeZQ18Q" name="사용자 ID 요청" receiveEvent="_tJgiQ75_EeObqMyAeZQ18Q" sendEvent="_tJgiQr5_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_tJgiQb5_EeObqMyAeZQ18Q" name="사용자 ID 응답" messageSort="reply" receiveEvent="_tJhJUL5_EeObqMyAeZQ18Q" sendEvent="_tJgiRL5_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_tvlq0L5_EeObqMyAeZQ18Q" name="가입 여부 체크 및 계정 생성" receiveEvent="_tvmR475_EeObqMyAeZQ18Q" sendEvent="_tvmR4r5_EeObqMyAeZQ18Q"/>
+    <message xmi:id="_tvmR4b5_EeObqMyAeZQ18Q" name="가입 여부 확인됨" messageSort="reply" receiveEvent="_tvm48b5_EeObqMyAeZQ18Q" sendEvent="_tvmR5L5_EeObqMyAeZQ18Q"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_XtY-8L5_EeObqMyAeZQ18Q" name="Client App"/>
 </uml:Model>
