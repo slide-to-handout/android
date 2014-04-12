@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_DHanAL5fEeO6K480ghKqqA" name="SlideToHandout">
   <packagedElement xmi:type="uml:Actor" xmi:id="_JiySgL5gEeO6K480ghKqqA" name="Speaker"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_KvPekL5gEeO6K480ghKqqA" name="Connect to the channel">
-    <extend xmi:id="_RB5BAL5jEeO6K480ghKqqA" extendedCase="_O7y3ML5jEeO6K480ghKqqA"/>
-  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_KvPekL5gEeO6K480ghKqqA" name="Manage the channel"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_WBVd4L5gEeO6K480ghKqqA" name="Control the presentation screen"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_gKamsL5gEeO6K480ghKqqA" name="Association_Speaker_to_Connect to the channel" memberEnd="_gKgGQL5gEeO6K480ghKqqA _gKgtUL5gEeO6K480ghKqqA">
     <ownedEnd xmi:id="_gKgGQL5gEeO6K480ghKqqA" type="_JiySgL5gEeO6K480ghKqqA" association="_gKamsL5gEeO6K480ghKqqA"/>
@@ -14,10 +12,9 @@
     <ownedEnd xmi:id="_g6upUL5gEeO6K480ghKqqA" type="_WBVd4L5gEeO6K480ghKqqA" association="_g6uCQL5gEeO6K480ghKqqA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Actor" xmi:id="_iArkwL5gEeO6K480ghKqqA" name="Audience"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_r9NfUL5gEeO6K480ghKqqA" name="Promote an audience to a speaker"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_wcIhsL5gEeO6K480ghKqqA" name="Association_Speaker_to_Promote an audience to a speaker" memberEnd="_wcJIwL5gEeO6K480ghKqqA _wcJIwb5gEeO6K480ghKqqA">
     <ownedEnd xmi:id="_wcJIwL5gEeO6K480ghKqqA" type="_JiySgL5gEeO6K480ghKqqA" association="_wcIhsL5gEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_wcJIwb5gEeO6K480ghKqqA" type="_r9NfUL5gEeO6K480ghKqqA" association="_wcIhsL5gEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_wcJIwb5gEeO6K480ghKqqA" association="_wcIhsL5gEeO6K480ghKqqA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_CMuOcL5hEeO6K480ghKqqA" name="Question to the speaker"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_GH5DgL5hEeO6K480ghKqqA" name="Association_Audience_to_Question to the speaker" memberEnd="_GH5Dgb5hEeO6K480ghKqqA _GH5qkL5hEeO6K480ghKqqA">
@@ -45,7 +42,7 @@
     <ownedEnd xmi:id="_yDNiUb5iEeO6K480ghKqqA" type="_iArkwL5gEeO6K480ghKqqA" association="_yDNiUL5iEeO6K480ghKqqA"/>
     <ownedEnd xmi:id="_yDNiUr5iEeO6K480ghKqqA" type="_KvPekL5gEeO6K480ghKqqA" association="_yDNiUL5iEeO6K480ghKqqA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_2KT6kL5iEeO6K480ghKqqA" name="View slides"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2KT6kL5iEeO6K480ghKqqA" name="View contents"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_4rh6IL5iEeO6K480ghKqqA" name="Association_Speaker_to_View slides" memberEnd="_4rh6Ib5iEeO6K480ghKqqA _4rihML5iEeO6K480ghKqqA">
     <ownedEnd xmi:id="_4rh6Ib5iEeO6K480ghKqqA" type="_JiySgL5gEeO6K480ghKqqA" association="_4rh6IL5iEeO6K480ghKqqA"/>
     <ownedEnd xmi:id="_4rihML5iEeO6K480ghKqqA" type="_2KT6kL5iEeO6K480ghKqqA" association="_4rh6IL5iEeO6K480ghKqqA"/>
@@ -54,58 +51,52 @@
     <ownedEnd xmi:id="_5MbAsb5iEeO6K480ghKqqA" type="_iArkwL5gEeO6K480ghKqqA" association="_5MbAsL5iEeO6K480ghKqqA"/>
     <ownedEnd xmi:id="_5MbnwL5iEeO6K480ghKqqA" type="_2KT6kL5iEeO6K480ghKqqA" association="_5MbAsL5iEeO6K480ghKqqA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_6SWuAL5iEeO6K480ghKqqA" name="View slide notes"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_71QEIL5iEeO6K480ghKqqA" name="Association_Speaker_to_View slide notes" memberEnd="_71QEIb5iEeO6K480ghKqqA _71QEIr5iEeO6K480ghKqqA">
     <ownedEnd xmi:id="_71QEIb5iEeO6K480ghKqqA" type="_JiySgL5gEeO6K480ghKqqA" association="_71QEIL5iEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_71QEIr5iEeO6K480ghKqqA" type="_6SWuAL5iEeO6K480ghKqqA" association="_71QEIL5iEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_71QEIr5iEeO6K480ghKqqA" association="_71QEIL5iEeO6K480ghKqqA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_8WoS4L5iEeO6K480ghKqqA" name="Association_Audience_to_View slide notes" memberEnd="_8WoS4b5iEeO6K480ghKqqA _8Wo58L5iEeO6K480ghKqqA">
     <ownedEnd xmi:id="_8WoS4b5iEeO6K480ghKqqA" type="_iArkwL5gEeO6K480ghKqqA" association="_8WoS4L5iEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_8Wo58L5iEeO6K480ghKqqA" type="_6SWuAL5iEeO6K480ghKqqA" association="_8WoS4L5iEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_8Wo58L5iEeO6K480ghKqqA" association="_8WoS4L5iEeO6K480ghKqqA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_O7y3ML5jEeO6K480ghKqqA" name="Invite other to the channel"/>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_b_Bc8L5jEeO6K480ghKqqA" name="Presentation Screen"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_g68kYL5jEeO6K480ghKqqA" name="Execute the presentation screen"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_lSZFwL5jEeO6K480ghKqqA" name="Association_Speaker_to_Execute the presentation screen" memberEnd="_lSZs0L5jEeO6K480ghKqqA _lSZs0b5jEeO6K480ghKqqA">
     <ownedEnd xmi:id="_lSZs0L5jEeO6K480ghKqqA" type="_JiySgL5gEeO6K480ghKqqA" association="_lSZFwL5jEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_lSZs0b5jEeO6K480ghKqqA" type="_g68kYL5jEeO6K480ghKqqA" association="_lSZFwL5jEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_lSZs0b5jEeO6K480ghKqqA" association="_lSZFwL5jEeO6K480ghKqqA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_mkME0L5jEeO6K480ghKqqA" name="Association_Presentation Screen_to_Execute the presentation screen" memberEnd="_mkMr4L5jEeO6K480ghKqqA _mkMr4b5jEeO6K480ghKqqA">
-    <ownedEnd xmi:id="_mkMr4L5jEeO6K480ghKqqA" type="_b_Bc8L5jEeO6K480ghKqqA" association="_mkME0L5jEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_mkMr4b5jEeO6K480ghKqqA" type="_g68kYL5jEeO6K480ghKqqA" association="_mkME0L5jEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_mkMr4L5jEeO6K480ghKqqA" association="_mkME0L5jEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_mkMr4b5jEeO6K480ghKqqA" association="_mkME0L5jEeO6K480ghKqqA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_rblRkL5jEeO6K480ghKqqA" name="Association_Control the presentation screen_to_Presentation Screen" memberEnd="_rblRkb5jEeO6K480ghKqqA _rblRkr5jEeO6K480ghKqqA">
     <ownedEnd xmi:id="_rblRkb5jEeO6K480ghKqqA" type="_WBVd4L5gEeO6K480ghKqqA" association="_rblRkL5jEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_rblRkr5jEeO6K480ghKqqA" type="_b_Bc8L5jEeO6K480ghKqqA" association="_rblRkL5jEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_rblRkr5jEeO6K480ghKqqA" association="_rblRkL5jEeO6K480ghKqqA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_2pLycL5jEeO6K480ghKqqA" name="Write down on a slide"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_7U8-AL5jEeO6K480ghKqqA" name="Association_Speaker_to_Draw on a slide" memberEnd="_7U8-Ab5jEeO6K480ghKqqA _7U8-Ar5jEeO6K480ghKqqA">
     <ownedEnd xmi:id="_7U8-Ab5jEeO6K480ghKqqA" type="_JiySgL5gEeO6K480ghKqqA" association="_7U8-AL5jEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_7U8-Ar5jEeO6K480ghKqqA" type="_2pLycL5jEeO6K480ghKqqA" association="_7U8-AL5jEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_7U8-Ar5jEeO6K480ghKqqA" association="_7U8-AL5jEeO6K480ghKqqA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_AcKIYL5kEeO6K480ghKqqA" name="View handwriting on a slide"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_MJHewL5kEeO6K480ghKqqA" name="Association_Presentation Screen_to_View handwriting on a slide" memberEnd="_MJHewb5kEeO6K480ghKqqA _MJIF0L5kEeO6K480ghKqqA">
-    <ownedEnd xmi:id="_MJHewb5kEeO6K480ghKqqA" type="_b_Bc8L5jEeO6K480ghKqqA" association="_MJHewL5kEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_MJIF0L5kEeO6K480ghKqqA" type="_AcKIYL5kEeO6K480ghKqqA" association="_MJHewL5kEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_MJHewb5kEeO6K480ghKqqA" association="_MJHewL5kEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_MJIF0L5kEeO6K480ghKqqA" association="_MJHewL5kEeO6K480ghKqqA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_MxhikL5kEeO6K480ghKqqA" name="Association_View handwriting on a slide_to_Audience" memberEnd="_Mxhikb5kEeO6K480ghKqqA _Mxhikr5kEeO6K480ghKqqA">
-    <ownedEnd xmi:id="_Mxhikb5kEeO6K480ghKqqA" type="_AcKIYL5kEeO6K480ghKqqA" association="_MxhikL5kEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_Mxhikb5kEeO6K480ghKqqA" association="_MxhikL5kEeO6K480ghKqqA"/>
     <ownedEnd xmi:id="_Mxhikr5kEeO6K480ghKqqA" type="_iArkwL5gEeO6K480ghKqqA" association="_MxhikL5kEeO6K480ghKqqA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_OJlhsL5kEeO6K480ghKqqA" name="Association_View slides_to_Presentation Screen" memberEnd="_OJmIwL5kEeO6K480ghKqqA _OJmIwb5kEeO6K480ghKqqA">
     <ownedEnd xmi:id="_OJmIwL5kEeO6K480ghKqqA" type="_2KT6kL5iEeO6K480ghKqqA" association="_OJlhsL5kEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_OJmIwb5kEeO6K480ghKqqA" type="_b_Bc8L5jEeO6K480ghKqqA" association="_OJlhsL5kEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_OJmIwb5kEeO6K480ghKqqA" association="_OJlhsL5kEeO6K480ghKqqA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_W-klYL5kEeO6K480ghKqqA" name="Association_Speaker_to_View handwriting on a slide" memberEnd="_W-lMcL5kEeO6K480ghKqqA _W-lMcb5kEeO6K480ghKqqA">
     <ownedEnd xmi:id="_W-lMcL5kEeO6K480ghKqqA" type="_JiySgL5gEeO6K480ghKqqA" association="_W-klYL5kEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_W-lMcb5kEeO6K480ghKqqA" type="_AcKIYL5kEeO6K480ghKqqA" association="_W-klYL5kEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_W-lMcb5kEeO6K480ghKqqA" association="_W-klYL5kEeO6K480ghKqqA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_ZIHEwL5kEeO6K480ghKqqA" name="Association_Connect to the channel_to_Presentation Screen" memberEnd="_ZIHEwb5kEeO6K480ghKqqA _ZIHEwr5kEeO6K480ghKqqA">
     <ownedEnd xmi:id="_ZIHEwb5kEeO6K480ghKqqA" type="_KvPekL5gEeO6K480ghKqqA" association="_ZIHEwL5kEeO6K480ghKqqA"/>
-    <ownedEnd xmi:id="_ZIHEwr5kEeO6K480ghKqqA" type="_b_Bc8L5jEeO6K480ghKqqA" association="_ZIHEwL5kEeO6K480ghKqqA"/>
+    <ownedEnd xmi:id="_ZIHEwr5kEeO6K480ghKqqA" association="_ZIHEwL5kEeO6K480ghKqqA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Interaction" xmi:id="_zHcVwL5-EeObqMyAeZQ18Q" name="SlideToHandout">
-    <ownedAttribute xmi:id="_W8TgQL5_EeObqMyAeZQ18Q" name="Web Service" type="_b_Bc8L5jEeO6K480ghKqqA"/>
+    <ownedAttribute xmi:id="_W8TgQL5_EeObqMyAeZQ18Q" name="Web Service"/>
     <ownedAttribute xmi:id="_XtaNEb5_EeObqMyAeZQ18Q" name="Client App" type="_XtY-8L5_EeObqMyAeZQ18Q"/>
     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_fJKM8L5_EeObqMyAeZQ18Q" name="로그인 액티비티 전환"/>
     <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_iC7PYb5_EeObqMyAeZQ18Q" name="외부 서비스 계정으로 로그인 요청"/>
@@ -165,4 +156,8 @@
     <message xmi:id="_tvmR4b5_EeObqMyAeZQ18Q" name="가입 여부 확인됨" messageSort="reply" receiveEvent="_tvm48b5_EeObqMyAeZQ18Q" sendEvent="_tvmR5L5_EeObqMyAeZQ18Q"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Actor" xmi:id="_XtY-8L5_EeObqMyAeZQ18Q" name="Client App"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_G_PtgMIrEeOe36XS9WwGoQ" name="Association_Speaker_to_Question to the speaker" memberEnd="_G_QUkMIrEeOe36XS9WwGoQ _G_QUkcIrEeOe36XS9WwGoQ">
+    <ownedEnd xmi:id="_G_QUkMIrEeOe36XS9WwGoQ" type="_JiySgL5gEeO6K480ghKqqA" association="_G_PtgMIrEeOe36XS9WwGoQ"/>
+    <ownedEnd xmi:id="_G_QUkcIrEeOe36XS9WwGoQ" type="_CMuOcL5hEeO6K480ghKqqA" association="_G_PtgMIrEeOe36XS9WwGoQ"/>
+  </packagedElement>
 </uml:Model>
