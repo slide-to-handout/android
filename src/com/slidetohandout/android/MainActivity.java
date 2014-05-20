@@ -30,89 +30,89 @@ import com.sun.pdfview.PDFPaint;
 import com.slidetohandout.android.util.NetworkFileDownloader;
 
 public class MainActivity extends Activity {
-	private final static String TAG = "MainActivity";
+    private final static String TAG = "MainActivity";
 
-	private int page = 1;
-	private PDFFile pdfFile = null;
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+    private int page = 1;
+    private PDFFile pdfFile = null;
 
-		Button prevBtn = (Button) findViewById(R.id.button1);
-		prevBtn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				load(page - 1);
-			}
-		});
-		Button nextBtn = (Button) findViewById(R.id.button2);
-		nextBtn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				load(page + 1);
-			}
-		});
-		
-		NetworkFileDownloader.OnDownloadListener listener = new NetworkFileDownloader.OnDownloadListener() {
-			@Override
-			public void onSuccess(File f) {
-				// TODO Auto-generated method stub
-				try {
-					RandomAccessFile raf = new RandomAccessFile(f, "r");
-					FileChannel channel = raf.getChannel();
-					MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
-					ByteBuffer buf = ByteBuffer.NEW(map);
-					pdfFile = new PDFFile(buf);
-				} catch (FileNotFoundException e) {
-					Log.e(MainActivity.TAG, "File not found", e);
-				} catch (IOException e) {
-					Log.e(MainActivity.TAG, "General IO Error", e);
-				}
-			}
-			
-			@Override
-			public void onFailure(Exception e) {
-				// pass
-			}
-		};
-        
-		PDFImage.sShowImages = true;
-		PDFPaint.s_doAntiAlias = true;
-		HardReference.sKeepCaches = false;
-		
-		URL url = null;
-		try {
-			url = new URL("http://whcarrot.iptime.org:8080/test.pdf");
-		} catch (MalformedURLException e) {
-			return;
-		}
-		
-		new NetworkFileDownloader(this)
-			.setOnDownloadListener(listener)
-			.execute(url);
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+        Button prevBtn = (Button) findViewById(R.id.button1);
+        prevBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                load(page - 1);
+            }
+        });
+        Button nextBtn = (Button) findViewById(R.id.button2);
+        nextBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                load(page + 1);
+            }
+        });
 
-	public void load(int page) {
-		if (pdfFile == null) {
-			Log.e(MainActivity.TAG, "PDF is not loaded yet");
-			return;
-		}
-		this.page = page;
-		
-		PDFPage pdfPage = pdfFile.getPage(1, true);
-		RectF rect = new RectF(0, 0, (int) pdfPage.getWidth(), (int) pdfPage.getHeight());
-		Bitmap image = pdfPage.getImage((int)pdfPage.getWidth(), (int)pdfPage.getHeight(), rect, true, true);
-		
-		ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-		imageView.setImageBitmap(image);
-	}
+        NetworkFileDownloader.OnDownloadListener listener = new NetworkFileDownloader.OnDownloadListener() {
+            @Override
+            public void onSuccess(File f) {
+                // TODO Auto-generated method stub
+                try {
+                    RandomAccessFile raf = new RandomAccessFile(f, "r");
+                    FileChannel channel = raf.getChannel();
+                    MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
+                    ByteBuffer buf = ByteBuffer.NEW(map);
+                    pdfFile = new PDFFile(buf);
+                } catch (FileNotFoundException e) {
+                    Log.e(MainActivity.TAG, "File not found", e);
+                } catch (IOException e) {
+                    Log.e(MainActivity.TAG, "General IO Error", e);
+                }
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                // pass
+            }
+        };
+
+        PDFImage.sShowImages = true;
+        PDFPaint.s_doAntiAlias = true;
+        HardReference.sKeepCaches = false;
+
+        URL url = null;
+        try {
+            url = new URL("http://whcarrot.iptime.org:8080/test.pdf");
+        } catch (MalformedURLException e) {
+            return;
+        }
+
+        new NetworkFileDownloader(this)
+            .setOnDownloadListener(listener)
+            .execute(url);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    public void load(int page) {
+        if (pdfFile == null) {
+            Log.e(MainActivity.TAG, "PDF is not loaded yet");
+            return;
+        }
+        this.page = page;
+
+        PDFPage pdfPage = pdfFile.getPage(1, true);
+        RectF rect = new RectF(0, 0, (int) pdfPage.getWidth(), (int) pdfPage.getHeight());
+        Bitmap image = pdfPage.getImage((int)pdfPage.getWidth(), (int)pdfPage.getHeight(), rect, true, true);
+
+        ImageView imageView = (ImageView) findViewById(R.id.imageView1);
+        imageView.setImageBitmap(image);
+    }
 }
