@@ -2,8 +2,11 @@ package com.slidetohandout.android;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.RandomAccessFile;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 import net.sf.andpdf.nio.ByteBuffer;
@@ -19,6 +22,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.pdfjet.A4;
+import com.pdfjet.Image;
+import com.pdfjet.ImageType;
+import com.pdfjet.PDF;
+import com.pdfjet.Page;
 import com.sun.pdfview.PDFFile;
 import com.sun.pdfview.PDFImage;
 import com.sun.pdfview.PDFPage;
@@ -49,11 +57,25 @@ public class MainActivity extends Activity {
 		});
 		
 		try {
+			/*
+			FileOutputStream fos = new FileOutputStream("http://whcarrot.iptime.org:8080/test.pdf");
+	        PDF pdf = new PDF(fos);
+	        InputStream f = getApplicationContext().getAssets().open("img0.jpg"); 
+	        Image image = new Image(pdf, f, ImageType.JPG);
+	        Page page = new Page(pdf, A4.PORTRAIT);
+	        image.setPosition(0, 0);
+	        image.drawOn(page);
+	        pdf.flush();
+	        fos.close();
+*/
+			//ImageView imageView = (ImageView) findViewById(R.id.imageView1);
+			//imageView.setImageBitmap(image);
+	        
 			PDFImage.sShowImages = true;
 			PDFPaint.s_doAntiAlias = true;
 			HardReference.sKeepCaches = false;
 			
-			File file = new File("/storage/external_SD/test.pdf");
+			File file = new File("http://whcarrot.iptime.org:8080/test.pdf");
 			if(!file.exists()) {
 				Log.i("whcarrot:file not exists", file.getAbsolutePath());
 				return;
@@ -62,8 +84,11 @@ public class MainActivity extends Activity {
 			RandomAccessFile raf = new RandomAccessFile(file, "r");
 			
 			FileChannel channel = raf.getChannel();
-			ByteBuffer buf = ByteBuffer.NEW(channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size()));
-			
+			MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
+			System.out.println(map.getChar(0));
+			System.out.println(map.getChar(1));
+			ByteBuffer buf = ByteBuffer.NEW(map);
+			System.out.println(buf);
 			pdfFile = new PDFFile(buf);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -72,6 +97,9 @@ public class MainActivity extends Activity {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			Log.i("whcarrot:io", e.toString());
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
