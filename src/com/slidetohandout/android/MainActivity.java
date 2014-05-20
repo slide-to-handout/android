@@ -2,10 +2,10 @@ package com.slidetohandout.android;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.RandomAccessFile;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -22,19 +22,18 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.pdfjet.A4;
-import com.pdfjet.Image;
-import com.pdfjet.ImageType;
-import com.pdfjet.PDF;
-import com.pdfjet.Page;
 import com.sun.pdfview.PDFFile;
 import com.sun.pdfview.PDFImage;
 import com.sun.pdfview.PDFPage;
 import com.sun.pdfview.PDFPaint;
 
+import com.slidetohandout.android.util.NetworkFileDownloader;
+
 public class MainActivity extends Activity {
+	private final static String TAG = "MainActivity";
+
 	private int page = 1;
-	private PDFFile pdfFile;
+	private PDFFile pdfFile = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,53 +55,43 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		try {
-			/*
-			FileOutputStream fos = new FileOutputStream("http://whcarrot.iptime.org:8080/test.pdf");
-	        PDF pdf = new PDF(fos);
-	        InputStream f = getApplicationContext().getAssets().open("img0.jpg"); 
-	        Image image = new Image(pdf, f, ImageType.JPG);
-	        Page page = new Page(pdf, A4.PORTRAIT);
-	        image.setPosition(0, 0);
-	        image.drawOn(page);
-	        pdf.flush();
-	        fos.close();
-*/
-			//ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-			//imageView.setImageBitmap(image);
-	        
-			PDFImage.sShowImages = true;
-			PDFPaint.s_doAntiAlias = true;
-			HardReference.sKeepCaches = false;
-			
-			File file = new File("http://whcarrot.iptime.org:8080/test.pdf");
-			if(!file.exists()) {
-				Log.i("whcarrot:file not exists", file.getAbsolutePath());
-				return;
+		NetworkFileDownloader.OnDownloadListener listener = new NetworkFileDownloader.OnDownloadListener() {
+			@Override
+			public void onSuccess(File f) {
+				// TODO Auto-generated method stub
+				try {
+					RandomAccessFile raf = new RandomAccessFile(f, "r");
+					FileChannel channel = raf.getChannel();
+					MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
+					ByteBuffer buf = ByteBuffer.NEW(map);
+					pdfFile = new PDFFile(buf);
+				} catch (FileNotFoundException e) {
+					Log.e(MainActivity.TAG, "File not found", e);
+				} catch (IOException e) {
+					Log.e(MainActivity.TAG, "General IO Error", e);
+				}
 			}
-		
-			RandomAccessFile raf = new RandomAccessFile(file, "r");
 			
-			FileChannel channel = raf.getChannel();
-			MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_ONLY, 0, channel.size());
-			System.out.println(map.getChar(0));
-			System.out.println(map.getChar(1));
-			ByteBuffer buf = ByteBuffer.NEW(map);
-			System.out.println(buf);
-			pdfFile = new PDFFile(buf);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			Log.i("whcarrot:file", e.toString());
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			Log.i("whcarrot:io", e.toString());
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			@Override
+			public void onFailure(Exception e) {
+				// pass
+			}
+		};
+        
+		PDFImage.sShowImages = true;
+		PDFPaint.s_doAntiAlias = true;
+		HardReference.sKeepCaches = false;
+		
+		URL url = null;
+		try {
+			url = new URL("http://whcarrot.iptime.org:8080/test.pdf");
+		} catch (MalformedURLException e) {
+			return;
 		}
 		
+		new NetworkFileDownloader(this)
+			.setOnDownloadListener(listener)
+			.execute(url);
 	}
 
 	@Override
@@ -113,6 +102,10 @@ public class MainActivity extends Activity {
 	}
 
 	public void load(int page) {
+		if (pdfFile == null) {
+			Log.e(MainActivity.TAG, "PDF is not loaded yet");
+			return;
+		}
 		this.page = page;
 		
 		PDFPage pdfPage = pdfFile.getPage(1, true);
