@@ -1,14 +1,8 @@
 package com.slidetohandout.android.util;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.util.Log;
 
 import com.koushikdutta.async.http.AsyncHttpClient;
@@ -16,8 +10,6 @@ import com.koushikdutta.async.http.socketio.Acknowledge;
 import com.koushikdutta.async.http.socketio.ConnectCallback;
 import com.koushikdutta.async.http.socketio.JSONCallback;
 import com.koushikdutta.async.http.socketio.SocketIOClient;
-import com.slidetohandout.android.AndroidPDFActivity;
-import com.slidetohandout.android.MainActivity;
 
 public class SocketIOUtil {
     private static SocketIOUtil instance = null;
