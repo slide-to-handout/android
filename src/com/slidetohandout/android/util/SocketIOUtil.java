@@ -149,6 +149,7 @@ public class SocketIOUtil {
         try {
             result = json.getJSONObject("result");
             String downloadUrl = result.getString("download_URL");
+            //downloadUrl = "http://slideout.krois.se/static/2014-05-27.pdf";
             if(onGetSlideListener != null) {
                 onGetSlideListener.on(downloadUrl);
             }
