@@ -10,27 +10,98 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 
+import com.facebook.Session;
+import com.facebook.SessionState;
 import com.slidetohandout.android.util.NetworkFileDownloader;
-import com.slidetohandout.android.util.SocketIOUtil;
-import com.slidetohandout.android.util.SocketIOUtil.OnGetSlideListener;
 
 public class MainActivity extends Activity {
     private final static String TAG = "MainActivity";
+    private Session.StatusCallback statusCallback = new SessionStatusCallback();
 
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        Session session = Session.getActiveSession();
+        if (session == null) {
+            if (savedInstanceState != null) {
+                session = Session.restoreSession(this, null, statusCallback, savedInstanceState);
+            }
+            if (session == null) {
+                session = new Session(this);
+            }
+            Session.setActiveSession(session);
+            if (session.getState().equals(SessionState.CREATED_TOKEN_LOADED)) {
+                session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+            }
+        }
+
+        updateView();/*
+        Intent intent = new Intent(MainActivity.this, LoginUsingLoginFragmentActivity.class);
+        startActivity(intent);
         setContentView(R.layout.activity_main);
+        /*
         SocketIOUtil.getInstance().setOnGetSlideListener(new OnGetSlideListener() {
             @Override
             public void on(String downloadUrl) {
                 open(downloadUrl);
             }
         });
-        SocketIOUtil.getInstance().socketConnect();
+        SocketIOUtil.getInstance().socketConnect();*/
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        Session.getActiveSession().addCallback(statusCallback);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Session.getActiveSession().removeCallback(statusCallback);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Session session = Session.getActiveSession();
+        Session.saveSession(session, outState);
+    }
+
+    private void updateView() {
+        Session session = Session.getActiveSession();
+        if (session.isOpened()) {
+            System.out.println("logined");
+        } else {
+            onClickLogin();
+            System.out.println("not login");
+        }
+    }
+
+    private void onClickLogin() {
+        Session session = Session.getActiveSession();
+        if (!session.isOpened() && !session.isClosed()) {
+            session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+        } else {
+            Session.openActiveSession(this, true, statusCallback);
+        }
+    }
+
+    private void onClickLogout() {
+        Session session = Session.getActiveSession();
+        if (!session.isClosed()) {
+            session.closeAndClearTokenInformation();
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -68,5 +139,12 @@ public class MainActivity extends Activity {
             .setOnDownloadListener(listener)
             .execute(url);
         
+    }
+
+    private class SessionStatusCallback implements Session.StatusCallback {
+        @Override
+        public void call(Session session, SessionState state, Exception exception) {
+            //updateView();
+        }
     }
 }
